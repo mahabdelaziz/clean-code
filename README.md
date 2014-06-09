@@ -4,7 +4,7 @@ Clean code by Robert C. Martin
 
 
 
-Ch. 1
+# Ch. 1 #
 
 - What a bad code can make ?
 => In late 80s, a company made a "killer" app. It was popular and alot of professionals bought it and used it. They had rushed the product to market and had made a huge mess in the code. As they added more and more features, the code got worse and worse until they simply could not manage it any longer. It was the bad code that brought the company down.
