@@ -2,8 +2,6 @@ clean-code
 ==========
 Clean code by Robert C. Martin
 
-
-
 # Ch. 1 #
 
 - What a bad code can make ?
@@ -37,14 +35,12 @@ Having a team that are writing messy code, will decrease the productivy of the w
 * "You know you are working on clean code when each routine you reads turns out to be pretty much what you You know you are expected" Ward Cunningham inventor of Wiki
 
 
-- How to measure a goode code ?
-	
-	WTFs/minute, the more WTFs, the worse that code.
+- How to measure a goode code ? WTFs/minute, the more WTFs, the worse that code.
 
 
 =======================================================
 
-Ch. 2 : Meaningful Names
+# Ch. 2 : Meaningful Names #
 
 - Use Intention-Revealing Names:
 
@@ -54,11 +50,12 @@ Ch. 2 : Meaningful Names
 
 		`int d; // elapsed time in days`
 	* Good code
-
-		```int elapsedTimeInDays;
+		```
+		int elapsedTimeInDays;
 		 int daysSinceCreation;
 		 int daysSinceModification;
-		 int fileAgeInDays;``` 
+		 int fileAgeInDays;
+                ```
 
 	* Bad code
 		```public List<int[]> getThem() {
@@ -135,146 +132,3 @@ Ch. 2 : Meaningful Names
 
 
 
-================================================================================
-
-Ch. 3: Functions
-
-- Small 
-	```// rules of functions:
-	// 1. should be small
-	// 2. should be smaller than that
-	// < 150 characters per line
-	// < 20 lines```
-
-- Do One Thing
-	```// FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL.
-// THEY SHOULD DO IT ONLY.```
-
-- One Level of Abstraction per Function
-	```// high level of abstraction
- getHtml()
-// intermediate level of abstraction
- String pagePathName = PathParser.render(pagePath);
-// remarkably low level
- .append("\n")```
-
-
-```class Employee{
-	 int payAmount() {
-		 switch (getType()) {
-		 	case EmployeeType.ENGINEER:
-		 return _monthlySalary;
-		 	case EmployeeType.SALESMAN:
-		 return _monthlySalary + _commission;
-		 	case EmployeeType.MANAGER:
-		 return _monthlySalary + _bonus;
-		 	default:
-		 	throw new Exception("Incorrect Employee");
-		 }
-	 }
-	}```
-	Does more than one thing!
-
-	```class EmployeeType...
-		 abstract int payAmount(Employee emp);
-	class Salesman...
- 		int payAmount(Employee emp) {
- 			return emp.getMonthlySalary() + emp.getCommission();
- 		}
-	class Manager...
- 		int payAmount(Employee emp) {
- 			return emp.getMonthlySalary() + emp.getBonus();
- 		}```
-` Each method does only one thing
-
-- Function Arguments
-	`// the ideal number of arguments for a function is zero`
-
-- Common Monadic Forms
-	```// if a function is going to transform its input argument,
-	// the transformation should appear as the return value
-	StringBuffer transform(StringBuffer in)
-	// is better than
-	void transform(StringBuffer out)
-	// asking a question about that argument
-	boolean fileExists(“MyFile”)
-	// operating on that argument, transforming and returning it
-	InputStream fileOpen(“MyFile”)
-	// event, use the argument to alter the state of the system
-	void passwordAttemptFailedNtimes(int attempts)```
-
-
-	```// flag arguments
-	void render(true)
-	|--> renderForSuite()
-	|->  renderForSingleTest()
-	```
-
-- Have No Side Effect
-	```// do something or answer something, but not both
-	public boolean set(String attribute, String value);
-	setAndCheckIfExists
-	if (attributeExists("username")) {
-	 setAttribute("username", "unclebob");
-	 ...
-	}```
-
-- Structured Programming
-```// Edsger Dijkstra’s rules
-// one entry
-// one exit
-// functions small
-// occasional multiple return, break, or continue statement
-// can sometimes even be more expressive Dijkstra’s rules```
-
-===========================================================================
-
-Ch. 4: Comments
-
--	Comments Do Not Make Up for Bad Code
-	`// don’t comment bad code, rewrite it!`
-
-- Explain Yourself in Code
-	```// Check to see if the employee is eligible for full benefits
-	if ((employee.flags & HOURLY_FLAG) && (employee.age > 65))
-	if (employee.isEligibleForFullBenefits())```
-`
-- Clarification
-	```assertTrue(a.compareTo(b) == -1); // a < b
-	assertTrue(b.compareTo(a) == 1); // b > a```
-
-======================================================================
-	
-	Ch. 6: Objects and Data Structures
-
-- The Law of Demeter
-	`final String outputDir = ctxt.getOptions() .getScratchDir() .getAbsolutePath();`
-- Train Wrecks
-	```Options opts = ctxt.getOptions();
-File scratchDir = opts.getScratchDir();
-final String outputDir = scratchDir.getAbsolutePath();
-final String outputDir = ctxt.options.scratchDir.absolutePath;```
-
-======================================================================
-
- Ch. 8 Classes
-
-- Class Organization
-```// public static constants
-// private static variables
-// private instance variables
-// public functions
-// private utilities called by a public function right after```
-`
-
-- Classes Should Be Small!
-	```// the first rule is that they should be small
-	// the second rule is that they should be smaller than that```
-
-- The Single Responsibility Principle (SRP)
-	```// a class or module should have one, and only one,
-	// reason to change
-	// SRP is one of the more important concept in OO design```
-
-- Cohesion
-	`// maintaining cohesion results in many small classes`
