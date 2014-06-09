@@ -83,51 +83,48 @@ public List<Cell> getFlaggedCells() {
 	return flaggedCells;
 }
 ```
-
 - Use Pronounceable Names
-	
-	* Bad code
-
-		```class DtaRcrd102 {
-		  private Date genymdhms;
-		  private Date modymdhms;
-		  private final String pszqint = "102";
-		 /* ... */
-		};```
-
-	* Good code
-
-		```class Customer {
-			private Date generationTimestamp;
-			private Date modificationTimestamp;;
+* Bad code
+```java
+class DtaRcrd102 {
+	private Date genymdhms;
+	private Date modymdhms;
+	private final String pszqint = "102";
+	/* ... */
+};
+```
+* Good code
+```java
+class Customer {
+	private Date generationTimestamp;
+	private Date modificationTimestamp;;
 			private final String recordId = "102";
 			/* ... */
-		};```
-
+};
+```
 - Use Searchable Names
-	
-	* Bad code
-	```for (int j = 0; j < 34; j++) {
-		s += (t[j] * 4) / 5;
-	}```
-
-	* Good code 
-	```int realDaysPerIdealDay = 4;
-	const int WORK_DAYS_PER_WEEK = 5;
-	int sum = 0;
-	for (int j = 0; j < NUMBER_OF_TASKS; j++) {
-	  int realTaskDays = taskEstimate[j] *  realDaysPerIdealDay;
-	  int realTaskWeeks = (realdays / WORK_DAYS_PER_WEEK);
-	  sum += realTaskWeeks;
-	}```
-
-
+* Bad code
+```java
+for (int j = 0; j < 34; j++) {
+	s += (t[j] * 4) / 5;
+}
+```
+* Good code 
+```java
+int realDaysPerIdealDay = 4;
+const int WORK_DAYS_PER_WEEK = 5;
+int sum = 0;
+for (int j = 0; j < NUMBER_OF_TASKS; j++) {
+	int realTaskDays = taskEstimate[j] *  realDaysPerIdealDay;
+	int realTaskWeeks = (realdays / WORK_DAYS_PER_WEEK);
+	sum += realTaskWeeks;
+}
+```
 - Pick One Word per Concept
-	`fetch, retrieve, get // as equivalent methods`
-	`controller, manager, driver // confusing`
-
+`fetch, retrieve, get // as equivalent methods`
+`controller, manager, driver // confusing`
 - Use Solution Domain Names
-	`AccountVisitor, JobQueue // people who read your code will be programmers`
+`AccountVisitor, JobQueue // people who read your code will be programmers`
 
 
 
