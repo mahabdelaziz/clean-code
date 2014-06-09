@@ -2,8 +2,6 @@ clean-code
 ==========
 
 Clean code by Robert C. Martin 
-
-
 Clean code by Robert C. Martin
 
 
@@ -61,75 +59,75 @@ Ch. 2 : Meaningful Names
 			`int d; // elapsed time in days`
 		* Good code
 
-			`int elapsedTimeInDays;
+			```int elapsedTimeInDays;
 			 int daysSinceCreation;
 			 int daysSinceModification;
-			 int fileAgeInDays;` 
+			 int fileAgeInDays;``` 
 
 		* Bad code
-			`public List<int[]> getThem() {
+			```public List<int[]> getThem() {
 				List<int[]> list1 = new ArrayList<int[]>();
 				for (int[] x : theList)
 					if (x[0] == 4)
 						list1.add(x);
 				return list1;
-			}`
+			}```
 
 		* Good code
-			`public List<int[]> getFlaggedCells() {
+			```public List<int[]> getFlaggedCells() {
 				List<int[]> flaggedCells = new ArrayList<int[]>();
 				for (int[] cell : gameBoard)
 					if (cell[STATUS_VALUE] == FLAGGED)
 						flaggedCells.add(cell);
 				return flaggedCells;
-			}`
+			}```
 
 			In that last code fragment the naming of the code is better that one before it. But the code is still hard to understand. So we can write it in another format.
 
-			`public List<Cell> getFlaggedCells() {
+			```public List<Cell> getFlaggedCells() {
 				List<Cell> flaggedCells = new ArrayList<Cell>();
 				for (Cell cell : this.gameBoard)
 					if (cell.isFlagged())
 						flaggedCells.add(cell);
 				return flaggedCells;
-			}`
+			}```
 
 - Use Pronounceable Names
 	
 	* Bad code
 
-		`class DtaRcrd102 {
+		```class DtaRcrd102 {
 		  private Date genymdhms;
 		  private Date modymdhms;
 		  private final String pszqint = "102";
 		 /* ... */
-		};`
+		};```
 
 	* Good code
 
-		`class Customer {
+		```class Customer {
 			private Date generationTimestamp;
 			private Date modificationTimestamp;;
 			private final String recordId = "102";
 			/* ... */
-		};`
+		};```
 
 - Use Searchable Names
 	
 	* Bad code
-	`for (int j = 0; j < 34; j++) {
+	```for (int j = 0; j < 34; j++) {
 		s += (t[j] * 4) / 5;
-	}`
+	}```
 
 	* Good code 
-	`int realDaysPerIdealDay = 4;
+	```int realDaysPerIdealDay = 4;
 	const int WORK_DAYS_PER_WEEK = 5;
 	int sum = 0;
 	for (int j = 0; j < NUMBER_OF_TASKS; j++) {
 	  int realTaskDays = taskEstimate[j] *  realDaysPerIdealDay;
 	  int realTaskWeeks = (realdays / WORK_DAYS_PER_WEEK);
 	  sum += realTaskWeeks;
-	}`
+	}```
 
 
 - Pick One Word per Concept
@@ -146,26 +144,26 @@ Ch. 2 : Meaningful Names
 Ch. 3: Functions
 
 - Small 
-	`// rules of functions:
+	```// rules of functions:
 	// 1. should be small
 	// 2. should be smaller than that
 	// < 150 characters per line
-	// < 20 lines`
+	// < 20 lines```
 
 - Do One Thing
-	`// FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL.
-// THEY SHOULD DO IT ONLY.`
+	```// FUNCTIONS SHOULD DO ONE THING. THEY SHOULD DO IT WELL.
+// THEY SHOULD DO IT ONLY.```
 
 - One Level of Abstraction per Function
-	`// high level of abstraction
+	```// high level of abstraction
  getHtml()
 // intermediate level of abstraction
  String pagePathName = PathParser.render(pagePath);
 // remarkably low level
- .append("\n")`
+ .append("\n")```
 
 
-`class Employee{
+```class Employee{
 	 int payAmount() {
 		 switch (getType()) {
 		 	case EmployeeType.ENGINEER:
@@ -178,9 +176,10 @@ Ch. 3: Functions
 		 	throw new Exception("Incorrect Employee");
 		 }
 	 }
-	}` Does more than one thing!
+	}```
+	Does more than one thing!
 
-	`class EmployeeType...
+	```class EmployeeType...
 		 abstract int payAmount(Employee emp);
 	class Salesman...
  		int payAmount(Employee emp) {
@@ -189,14 +188,14 @@ Ch. 3: Functions
 	class Manager...
  		int payAmount(Employee emp) {
  			return emp.getMonthlySalary() + emp.getBonus();
- 		}
+ 		}```
 ` Each method does only one thing
 
 - Function Arguments
 	`// the ideal number of arguments for a function is zero`
 
 - Common Monadic Forms
-	`// if a function is going to transform its input argument,
+	```// if a function is going to transform its input argument,
 	// the transformation should appear as the return value
 	StringBuffer transform(StringBuffer in)
 	// is better than
@@ -206,31 +205,31 @@ Ch. 3: Functions
 	// operating on that argument, transforming and returning it
 	InputStream fileOpen(“MyFile”)
 	// event, use the argument to alter the state of the system
-	void passwordAttemptFailedNtimes(int attempts)
+	void passwordAttemptFailedNtimes(int attempts)```
 
 
-	// flag arguments
+	```// flag arguments
 	void render(true)
 	|--> renderForSuite()
 	|->  renderForSingleTest()
-	`
+	```
 
 - Have No Side Effect
-	`// do something or answer something, but not both
+	```// do something or answer something, but not both
 	public boolean set(String attribute, String value);
 	setAndCheckIfExists
 	if (attributeExists("username")) {
 	 setAttribute("username", "unclebob");
 	 ...
-	}
-`
+	}```
+
 - Structured Programming
-`// Edsger Dijkstra’s rules
+```// Edsger Dijkstra’s rules
 // one entry
 // one exit
 // functions small
 // occasional multiple return, break, or continue statement
-// can sometimes even be more expressive Dijkstra’s rules`
+// can sometimes even be more expressive Dijkstra’s rules```
 
 ===========================================================================
 
@@ -240,13 +239,13 @@ Ch. 4: Comments
 	`// don’t comment bad code, rewrite it!`
 
 - Explain Yourself in Code
-	`// Check to see if the employee is eligible for full benefits
+	```// Check to see if the employee is eligible for full benefits
 	if ((employee.flags & HOURLY_FLAG) && (employee.age > 65))
-	if (employee.isEligibleForFullBenefits())
+	if (employee.isEligibleForFullBenefits())```
 `
 - Clarification
-	`assertTrue(a.compareTo(b) == -1); // a < b
-	assertTrue(b.compareTo(a) == 1); // b > a`
+	```assertTrue(a.compareTo(b) == -1); // a < b
+	assertTrue(b.compareTo(a) == 1); // b > a```
 
 ======================================================================
 	
@@ -255,31 +254,31 @@ Ch. 4: Comments
 - The Law of Demeter
 	`final String outputDir = ctxt.getOptions() .getScratchDir() .getAbsolutePath();`
 - Train Wrecks
-	`Options opts = ctxt.getOptions();
+	```Options opts = ctxt.getOptions();
 File scratchDir = opts.getScratchDir();
 final String outputDir = scratchDir.getAbsolutePath();
-final String outputDir = ctxt.options.scratchDir.absolutePath;`
+final String outputDir = ctxt.options.scratchDir.absolutePath;```
 
 ======================================================================
 
  Ch. 8 Classes
 
 - Class Organization
-`// public static constants
+```// public static constants
 // private static variables
 // private instance variables
 // public functions
-// private utilities called by a public function right after
+// private utilities called by a public function right after```
 `
 
 - Classes Should Be Small!
-	`// the first rule is that they should be small
-	// the second rule is that they should be smaller than that`
+	```// the first rule is that they should be small
+	// the second rule is that they should be smaller than that```
 
 - The Single Responsibility Principle (SRP)
-	`// a class or module should have one, and only one,
+	```// a class or module should have one, and only one,
 	// reason to change
-	// SRP is one of the more important concept in OO design`
+	// SRP is one of the more important concept in OO design```
 
 - Cohesion
 	`// maintaining cohesion results in many small classes`
