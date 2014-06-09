@@ -7,7 +7,7 @@ Clean code by Robert C. Martin
 # Ch. 1 #
 
 - What a bad code can make ?
-=> In late 80s, a company made a "killer" app. It was popular and alot of professionals bought it and used it. They had rushed the product to market and had made a huge mess in the code. As they added more and more features, the code got worse and worse until they simply could not manage it any longer. It was the bad code that brought the company down.
+* In late 80s, a company made a "killer" app. It was popular and alot of professionals bought it and used it. They had rushed the product to market and had made a huge mess in the code. As they added more and more features, the code got worse and worse until they simply could not manage it any longer. It was the bad code that brought the company down.
 
 Having a team that are writing messy code, will decrease the productivy of the whole project. As other developers will be trying to read and understand what that code does.
 
@@ -23,18 +23,18 @@ Having a team that are writing messy code, will decrease the productivy of the w
 
 
 
--What is a clean code ?
-= "I like my code to be elegant, efficient, and hard for bugs to hide. Clean code does one thing well", Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language
+- What is a clean code ?
+* "I like my code to be elegant, efficient, and hard for bugs to hide. Clean code does one thing well", Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language
 
-= "Clean code is simple and direct. Clean code reads like well-written prose." Grady Booch, author of Object Oriented Analysis and Design with Applications
+* "Clean code is simple and direct. Clean code reads like well-written prose." Grady Booch, author of Object Oriented Analysis and Design with Applications
 
-= "Clean code can be read. Clean code should be literate", Dave Thomas godfather of the Eclipse strategy.
+* "Clean code can be read. Clean code should be literate", Dave Thomas godfather of the Eclipse strategy.
 
-= "Clean code always looks like it was written by someone who cares" Michael Feathers, author of Working Effectively with Legacy Code
+* "Clean code always looks like it was written by someone who cares" Michael Feathers, author of Working Effectively with Legacy Code
 
-= "Reduced duplication, high expressiveness, and early building of, simple abstractions" Ron Jeffries, author of Extreme Programming
+* "Reduced duplication, high expressiveness, and early building of, simple abstractions" Ron Jeffries, author of Extreme Programming
 
-= "You know you are working on clean code when each routine you reads turns out to be pretty much what you You know you are expected" Ward Cunningham inventor of Wiki
+* "You know you are working on clean code when each routine you reads turns out to be pretty much what you You know you are expected" Ward Cunningham inventor of Wiki
 
 
 - How to measure a goode code ?
