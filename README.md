@@ -126,7 +126,7 @@ for (int j = 0; j < NUMBER_OF_TASKS; j++) {
 - Use Solution Domain Names
 `AccountVisitor, JobQueue // people who read your code will be programmers`
 
-Ch. 3: Functions
+#Ch. 3: Functions#
 - Small 
 ```java
 // rules of functions:
@@ -220,7 +220,6 @@ if (attributeExists("username")) {
 // occasional multiple return, break, or continue statement
 // can sometimes even be more expressive Dijkstra’s rules
 ```
-===========================================================================
 # Ch. 4: Comments #
 -	Comments Do Not Make Up for Bad Code
 `// don’t comment bad code, rewrite it!`
@@ -235,7 +234,6 @@ if (employee.isEligibleForFullBenefits())
 assertTrue(a.compareTo(b) == -1); // a < b
 assertTrue(b.compareTo(a) == 1); // b > a
 ```
-======================================================================
 #Ch. 6: Objects and Data Structures#
 - The Law of Demeter
 `final String outputDir = ctxt.getOptions() .getScratchDir() .getAbsolutePath();`
@@ -246,7 +244,6 @@ File scratchDir = opts.getScratchDir();
 final String outputDir = scratchDir.getAbsolutePath();
 final String outputDir = ctxt.options.scratchDir.absolutePath;
 ```
-======================================================================
 #Ch. 8 Classes#
 - Class Organization
 ```java
@@ -268,4 +265,6 @@ final String outputDir = ctxt.options.scratchDir.absolutePath;
 // SRP is one of the more important concept in OO design
 ```
 - Cohesion
-`// maintaining cohesion results in many small classes`
+```java
+// maintaining cohesion results in many small classes
+```
