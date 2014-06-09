@@ -45,26 +45,24 @@ Having a team that are writing messy code, will decrease the productivy of the w
 - Use Intention-Revealing Names:
 
 	The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name does not reveal its intent.
-
-	* Bad code
-
-		`int d; // elapsed time in days`
-	* Good code
-		```
-		int elapsedTimeInDays;
-		 int daysSinceCreation;
-		 int daysSinceModification;
-		 int fileAgeInDays;
-                ```
-
-	* Bad code
-		```public List<int[]> getThem() {
-			List<int[]> list1 = new ArrayList<int[]>();
-			for (int[] x : theList)
-				if (x[0] == 4)
-					list1.add(x);
-			return list1;
-		}```
+* Bad code
+`int d; // elapsed time in days`
+* Good code
+```
+int elapsedTimeInDays;
+int daysSinceCreation;
+int daysSinceModification;
+int fileAgeInDays;
+```
+* Bad code
+```java
+public List<int[]> getThem() {
+List<int[]> list1 = new ArrayList<int[]>();
+for (int[] x : theList)
+if (x[0] == 4) 
+list1.add(x);
+return list1;
+}```
 
 	* Good code
 		```public List<int[]> getFlaggedCells() {
