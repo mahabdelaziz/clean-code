@@ -8,17 +8,17 @@ Clean code by Robert C. Martin
 * In late 80s, a company made a "killer" app. It was popular and alot of professionals bought it and used it. They had rushed the product to market and had made a huge mess in the code. As they added more and more features, the code got worse and worse until they simply could not manage it any longer. It was the bad code that brought the company down.
 
 Having a team that are writing messy code, will decrease the productivy of the whole project. As other developers will be trying to read and understand what that code does.
-
-   |.
-   | .
-   |  .                      
-   |    .                    
-   |      .                  
-   |        .                
-   |           . ............ 
-   |_______________________________________ time
-   			Productivity vs. time
-
+```
+|.
+| .
+|  .                      
+|    .                    
+|      .                  
+|        .                
+|           . ............ 
+|_______________________________________ time
+Productivity vs. time
+```
 
 
 - What is a clean code ?
@@ -43,12 +43,11 @@ Having a team that are writing messy code, will decrease the productivy of the w
 # Ch. 2 : Meaningful Names #
 
 - Use Intention-Revealing Names:
-
-	The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name does not reveal its intent.
+The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name does not reveal its intent.
 * Bad code
 `int d; // elapsed time in days`
 * Good code
-```
+```java
 int elapsedTimeInDays;
 int daysSinceCreation;
 int daysSinceModification;
@@ -57,31 +56,33 @@ int fileAgeInDays;
 * Bad code
 ```java
 public List<int[]> getThem() {
-List<int[]> list1 = new ArrayList<int[]>();
-for (int[] x : theList)
-if (x[0] == 4) 
-list1.add(x);
-return list1;
-}```
-
-	* Good code
-		```public List<int[]> getFlaggedCells() {
-			List<int[]> flaggedCells = new ArrayList<int[]>();
-			for (int[] cell : gameBoard)
-				if (cell[STATUS_VALUE] == FLAGGED)
-					flaggedCells.add(cell);
-			return flaggedCells;
-		}```
-
-		In that last code fragment the naming of the code is better that one before it. But the code is still hard to understand. So we can write it in another format.
-
-		```public List<Cell> getFlaggedCells() {
-			List<Cell> flaggedCells = new ArrayList<Cell>();
-			for (Cell cell : this.gameBoard)
-				if (cell.isFlagged())
-					flaggedCells.add(cell);
-			return flaggedCells;
-		}```
+	List<int[]> list1 = new ArrayList<int[]>();
+	for (int[] x : theList)
+		if (x[0] == 4) 
+			list1.add(x);
+	return list1;
+}
+```
+* Good code
+```java
+public List<int[]> getFlaggedCells() {
+	List<int[]> flaggedCells = new ArrayList<int[]>();
+	for (int[] cell : gameBoard)
+		if (cell[STATUS_VALUE] == FLAGGED)
+			flaggedCells.add(cell);
+	return flaggedCells;
+}
+```
+In that last code fragment the naming of the code is better that one before it. But the code is still hard to understand. So we can write it in another format.
+```java
+public List<Cell> getFlaggedCells() {
+	List<Cell> flaggedCells = new ArrayList<Cell>();
+	for (Cell cell : this.gameBoard)
+	if (cell.isFlagged())
+		flaggedCells.add(cell);
+	return flaggedCells;
+}
+```
 
 - Use Pronounceable Names
 	
