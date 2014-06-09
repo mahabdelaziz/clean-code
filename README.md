@@ -1,7 +1,5 @@
 clean-code
 ==========
-
-Clean code by Robert C. Martin 
 Clean code by Robert C. Martin
 
 
@@ -15,30 +13,28 @@ Having a team that are writing messy code, will decrease the productivy of the w
 
    |.
    | .
-   |  .                                              
-   |    .                                                                                             
-   |      .                                          
-   |        .                                        
-   |           . ............                        
+   |  .                      
+   |    .                    
+   |      .                  
+   |        .                
+   |           . ............ 
    |_______________________________________ time
-
    			Productivity vs. time
 
 
 
 -What is a clean code ?
+= "I like my code to be elegant, efficient, and hard for bugs to hide. Clean code does one thing well", Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language
 
-	= "I like my code to be elegant, efficient, and hard for bugs to hide. Clean code does one thing well", Bjarne Stroustrup, inventor of C++ and author of The C++ Programming Language
+= "Clean code is simple and direct. Clean code reads like well-written prose." Grady Booch, author of Object Oriented Analysis and Design with Applications
 
-	= "Clean code is simple and direct. Clean code reads like well-written prose." Grady Booch, author of Object Oriented Analysis and Design with Applications
+= "Clean code can be read. Clean code should be literate", Dave Thomas godfather of the Eclipse strategy.
 
-	= "Clean code can be read. Clean code should be literate", Dave Thomas godfather of the Eclipse strategy.
+= "Clean code always looks like it was written by someone who cares" Michael Feathers, author of Working Effectively with Legacy Code
 
-	= "Clean code always looks like it was written by someone who cares" Michael Feathers, author of Working Effectively with Legacy Code
+= "Reduced duplication, high expressiveness, and early building of, simple abstractions" Ron Jeffries, author of Extreme Programming
 
-	= "Reduced duplication, high expressiveness, and early building of, simple abstractions" Ron Jeffries, author of Extreme Programming
-
-	= "You know you are working on clean code when each routine you reads turns out to be pretty much what you You know you are expected" Ward Cunningham inventor of Wiki
+= "You know you are working on clean code when each routine you reads turns out to be pretty much what you You know you are expected" Ward Cunningham inventor of Wiki
 
 
 - How to measure a goode code ?
@@ -54,43 +50,43 @@ Ch. 2 : Meaningful Names
 
 	The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name does not reveal its intent.
 
-		* Bad code
+	* Bad code
 
-			`int d; // elapsed time in days`
-		* Good code
+		`int d; // elapsed time in days`
+	* Good code
 
-			```int elapsedTimeInDays;
-			 int daysSinceCreation;
-			 int daysSinceModification;
-			 int fileAgeInDays;``` 
+		```int elapsedTimeInDays;
+		 int daysSinceCreation;
+		 int daysSinceModification;
+		 int fileAgeInDays;``` 
 
-		* Bad code
-			```public List<int[]> getThem() {
-				List<int[]> list1 = new ArrayList<int[]>();
-				for (int[] x : theList)
-					if (x[0] == 4)
-						list1.add(x);
-				return list1;
-			}```
+	* Bad code
+		```public List<int[]> getThem() {
+			List<int[]> list1 = new ArrayList<int[]>();
+			for (int[] x : theList)
+				if (x[0] == 4)
+					list1.add(x);
+			return list1;
+		}```
 
-		* Good code
-			```public List<int[]> getFlaggedCells() {
-				List<int[]> flaggedCells = new ArrayList<int[]>();
-				for (int[] cell : gameBoard)
-					if (cell[STATUS_VALUE] == FLAGGED)
-						flaggedCells.add(cell);
-				return flaggedCells;
-			}```
+	* Good code
+		```public List<int[]> getFlaggedCells() {
+			List<int[]> flaggedCells = new ArrayList<int[]>();
+			for (int[] cell : gameBoard)
+				if (cell[STATUS_VALUE] == FLAGGED)
+					flaggedCells.add(cell);
+			return flaggedCells;
+		}```
 
-			In that last code fragment the naming of the code is better that one before it. But the code is still hard to understand. So we can write it in another format.
+		In that last code fragment the naming of the code is better that one before it. But the code is still hard to understand. So we can write it in another format.
 
-			```public List<Cell> getFlaggedCells() {
-				List<Cell> flaggedCells = new ArrayList<Cell>();
-				for (Cell cell : this.gameBoard)
-					if (cell.isFlagged())
-						flaggedCells.add(cell);
-				return flaggedCells;
-			}```
+		```public List<Cell> getFlaggedCells() {
+			List<Cell> flaggedCells = new ArrayList<Cell>();
+			for (Cell cell : this.gameBoard)
+				if (cell.isFlagged())
+					flaggedCells.add(cell);
+			return flaggedCells;
+		}```
 
 - Use Pronounceable Names
 	
